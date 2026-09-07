@@ -1,0 +1,61 @@
+$ docker container run --name <container_name> <image_name>
+$ docker pull <image_name>
+
+Docker PS
+$ docker ps [options..]
+This command (by default) shows us a list of all the running containers. We can use various flags with it.
+
+-a flag:  shows us all the containers, stopped or running.
+-l flag: shows us the latest container.
+-q flag: shows only the Id of the containers. 
+
+$ docker container stop <container_ID>
+$ docker container start <container_ID>
+
+$ docker rm {options} <container_name or ID>
+-f flag: remove the container forcefully.
+-v flag: remove the volumes.
+-l flag: remove the specific link mentioned.
+
+
+$ docker rmi <image ID/ image name>
+$ docker images
+
+$ docker exec {options}
+-d flag: for running the commands in the background.
+-i flag: it will keep STDIN open even when not attached.
+-e flag: sets the environment variables 
+
+
+$ docker run -d -p <port_on_host> 
+<port_on_container> Container_name
+
+$ docker login 
+
+$ docker push <Image name/Image ID>
+
+$ docker build -t image_name:tag .
+
+$ docker stop container1 container2 container3
+
+$ docker inspect container_name_or_id
+
+Network Drivers
+bridge (default): Creates a private network where containers communicate internally and require port mapping for external access.
+host: Shares the host network directly, offering better performance but no isolation.
+none: Provides full isolation with no network access.
+overlay: Enables communication across multiple hosts in distributed setups.
+macvlan: Assigns a MAC address to make containers appear as physical devices.
+User-defined bridge: Allows containers to communicate using names instead of IPs.
+
+
+sudo docker network create --driver <driver-name> <bridge-name>
+
+sudo docker network connect <network-name> <container-name or id>
+
+sudo docker network inspect <network-name>
+
+sudo docker network rm <network-name>
+
+
+docker volume create <volume_name>
